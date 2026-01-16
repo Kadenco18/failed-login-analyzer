@@ -1,8 +1,9 @@
 import re
+import sys
 from collections import Counter
 
 LOG_FILE = "sample_auth.log"
-THRESHOLD = 3 # Flag IPs with this many or more failed logins
+THRESHOLD = int(sys.argv[1]) if len(sys.argv) > 1 else 3
 
 ip_pattern = re.compile(r"(\d{1,3}\.){3}\d{1,3}")
 failed_attempts = Counter()
@@ -15,7 +16,7 @@ with open(LOG_FILE, "r", encoding="utf-8", errors="ignore") as file:
                 ip = match.group()
                 failed_attempts[ip] += 1
 
-print("Suspicious IPs:")
+print(f"Suspicious IPs:" (threshold: {THRESHOLD}):") 
 for ip, count in failed_attempts.items():
     if count >= THRESHOLD:
         print(f"{ip} -> {count} failed attempts")
