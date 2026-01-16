@@ -12,6 +12,7 @@ Repeated failed logins are a common indicator of brute-force activity. Automatin
 3. Extracts source IP addresses
 4. Counts failures per IP
 5. Flag IPs exceeding a configurable threshold
+6. Supports configurable alert thresholds via command-line arguments
 
 ## Skills Demonstrated
 - Python Scripting
